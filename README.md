@@ -56,9 +56,21 @@ node ./thinking-partner/scripts/install.mjs --agent dsh --project ./my-project
 
 目录与加载规则参考 [Claude Code Skills](https://code.claude.com/docs/en/skills)、[OpenAI Docs](https://learn.chatgpt.com/docs/build-skills) 和 [DeepSeek Harness Skills](https://github.com/deepseek-ai/deepseek-harness/blob/master/docs/subsystems/skills.md)。
 
-### 兼容性验证
+### 宿主支持
 
-本地隔离项目已检查三端安装、文件完整性和重复执行。Codex CLI 0.166.0 已通过原生技能列表发现项目级入口。Claude Code 2.1.285 已在本地会话中展开 slash 命令对应的 Skill 正文。DeepSeek Harness 原生文件系统 Provider 0.2.2-rc.1 已发现并读取正文和附件。Claude 的回环模型探针未收到请求，DeepSeek Harness 桌面会话和三端真实模型对话待验证。
+| 宿主 | 已核对的支持范围 |
+| --- | --- |
+| Claude Code | 项目级安装，命令可加载 Skill 正文。 |
+| Codex | 项目级安装，原生技能列表可发现 Skill。 |
+| DeepSeek Harness | 项目级安装，启用文件系统 Skill Provider 后可发现并读取 Skill 和附件。 |
+
+支持范围基于项目级安装和加载检查。各宿主的真实对话表现待验证。
+
+## 公开版功能
+
+- 宽题先给建议和理由，列出 2–3 个方向，正文聚焦当前方向。
+- 首轮与方向或状态变化时，在回复末尾显示静态 Todo。用户可跳过或改道。
+- 用户授权留存后，会话小结可保存方向、状态、关键里程碑和接续点。
 
 ## 项目路线
 
